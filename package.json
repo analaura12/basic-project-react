@@ -1,0 +1,24 @@
+{
+  "name": "basic-project-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analaura12/basic-project-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/analaura12/basic-project-react/issues"
+  },
+  "homepage": "https://github.com/analaura12/basic-project-react#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-react": "^7.17.12"
+  }
+}
