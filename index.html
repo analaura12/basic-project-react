@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Project in React.js</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        const NomeContext = React.createContext('nome');
+
+        function MeuComponente1() {
+            //I want to pass this variable to the component called MeuComponente4
+            const meuNome = 'Ana Laura Almeida';
+            return (
+                //Provider -> Provedor
+                //Consumer -> componente que irá consumir o dado
+                React.createElement(NomeContext.Provider, { value: meuNome },
+                    React.createElement('div', { className: 'component-1' },
+                        React.createElement(MeuComponente2, { nome: meuNome }))
+                )
+            )
+        }
+
+        function MeuComponente2(props) {
+            return (
+                React.createElement('div', { className: 'component-2' },
+                    React.createElement(MeuComponente3, { nome: props.nome, idade: props.idade }))
+            )
+        }
+
+        function MeuComponente3(props) {
+            return (
+                React.createElement('div', { className: 'component-3' },
+                    React.createElement(MeuComponente4, { nome: props.nome, idade: props.idade }))
+            )
+        }
+
+        function MeuComponente4(props) {
+            //by convention we call it props, but it could be called, parameters and others
+            return (
+                React.createElement(NomeContext.Consumer, null, 
+                    (nomeContext) => (
+                        React.createElement('div', { className: 'component-4' },
+                            React.createElement('p', null, nomeContext))
+                    )
+                )
+            )
+        }
+
+        function MeuComponente() {
+            return React.createElement('div', { id: 'components' },
+                React.createElement(MeuComponente1))
+        }
+
+        ReactDOM.render(
+            React.createElement(MeuComponente),
+            document.getElementById("app")
+        )
+    </script>
+</body>
+
+</html>
