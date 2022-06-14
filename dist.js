@@ -21,10 +21,13 @@ function MeuComponente3(props) {
 }
 
 function MeuComponente4(props) {
-  //by convention we call it props, but it could be called, parameters and others
+  const [idade, setIdade] = React.useState(28);
+  setTimeout(function () {
+    setIdade(29);
+  }, 1000);
   return /*#__PURE__*/React.createElement("div", {
     className: "component-4"
-  }, /*#__PURE__*/React.createElement("p", null, "Component - 4"));
+  }, /*#__PURE__*/React.createElement("p", null, "Component - 4 - ", idade));
 }
 
 function MeuComponente() {
